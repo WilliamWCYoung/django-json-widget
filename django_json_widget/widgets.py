@@ -41,6 +41,14 @@ class JSONEditorWidget(forms.Widget):
         context['widget']['options'] = json.dumps(self.options)
         context['widget']['width'] = self.width
         context['widget']['height'] = self.height
+        
+        # Get the nonce from the request
+        request = context.get('request')
+        if request and hasattr(request, 'csp_nonce'):
+            context['widget']['nonce'] = request.csp_nonce
+        else:
+            # Fallback for when request is not available (should not happen in normal usage)
+            context['widget']['nonce'] = ''
 
         if value:
             if isinstance(value, str):
