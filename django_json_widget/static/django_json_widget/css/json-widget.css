@@ -1,0 +1,9 @@
+.json-editor-container {
+    height: 500px;
+    width: 90%;
+    display: inline-block;
+}
+
+.json-editor-textarea {
+    display: none;
+} 

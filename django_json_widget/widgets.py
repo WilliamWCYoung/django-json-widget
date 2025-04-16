@@ -10,10 +10,12 @@ class JSONEditorWidget(forms.Widget):
     class Media:
         js = (
             getattr(settings, "JSON_EDITOR_JS", 'dist/jsoneditor.min.js'),
+            'django_json_widget/js/json-widget.js',
         )
         css = {
             'all': (
                 getattr(settings, "JSON_EDITOR_CSS", 'dist/jsoneditor.min.css'),
+                'django_json_widget/css/json-widget.css',
             )
         }
 
